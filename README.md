@@ -27,12 +27,6 @@ A personal portfolio website built with HTML, CSS, and JavaScript.
 - `projectsa.html` — Projects page
 - `about.html` — About page
 
- 🚀 How to Run
-1. Clone the repository
-```bash[(https://waruniprarthana2-art.github.io/My-portfolio/)
-```
-2. Open `index.html` in your browser
-
  📬 Contact
 - LinkedIn: [Waruni Prarthana](https://www.linkedin.com/in/waruni-prarthana-245707391/)
 - GitHub: [@waruniprarthana2-art](https://github.com/waruniprarthana2-art)
