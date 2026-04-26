@@ -1,0 +1,412 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    --first-color: hsl(163, 94%, 42%);
+    --first-color-alt: hsl(165, 96%, 40%);
+    --title-color: phsl(5, 15%, 15%);
+    --text-color: hsl(5, 8%, 35%);
+    --white-color: hsl(0, 0%, 100%);
+    --body-color: hsl(5, 100%, 98%);
+    --main-color: #007f73;
+    --snd-bg-color: #d5fdf9;
+
+    --body-font: "Montserrat", sans-serif;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+
+    --font-regular: 400;
+    --font-semi-bold: 600;
+    --font-bold: 700;
+
+    --z-normal: 1;
+    --z-modal: 1000;
+
+    --border-radius-s: 8px;
+    --border-radius-m: 15px;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1150px) {
+    :root {
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+    }
+}
+
+/*=============== BASE ===============*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--snd-bg-color);
+    color: var(--text-color);
+}
+
+body.show-mobile-menu::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/*Header section code*/
+.header {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 5%;
+    background-color: #007f73;
+    transition: all 0.5s ease;
+}
+
+.logo {
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.navbar {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    width: 255px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--main-color);
+    transition: all 0.5s ease;
+    font-size: em;
+ 
+}
+
+.navbar a {
+    font-size: 1rem;
+    color: #fff;
+    margin-left: 0rem;
+    font-weight: 700;
+    transition: 0.3s ease;
+    display: block;
+    padding: 14px;
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    margin-top: 25px;
+
+}
+
+.navbar.active {
+    right: 0;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #000;
+}
+
+#menu-icon {
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    z-index: 1001;
+}
+
+/*=============== CONTAINER ===============*/
+.container {
+    margin-top: 80px;
+    margin-inline: 1rem;
+    adding-block: 1rem;
+}
+
+.container__title {
+    font-size: var(--h2-font-size);
+    text-align: center;
+    color: var(--title-color);
+    margin-bottom: 0.2rem;
+}
+
+.container__title::after {
+    content: "";
+    width: 100px;
+    height: 5px;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: var(--border-radius-s);
+    background: var(--main-color);
+}
+
+/*=============== CARD ===============*/
+.card__container {
+    display: grid;
+    margin-top: 50px;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    gap: 2rem;
+}
+
+
+.card__product {
+    background-color: var(--body-color);
+    border: 4px solid #007f73;
+    border-radius: var(--border-radius-m);
+    padding-block: 1.25rem;
+    text-align: center;
+    display: grid;
+    row-gap: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
+    /* Animation start state */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+
+.card__product.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.card__product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+}
+
+.card__img {
+    width: 200px;
+    justify-self: center;
+    filter: drop-shadow(0 8px 16px hsla(5, 90%, 4%, .2));
+    transition: transform .3s;
+}
+
+.card__name {
+    font-size: var(--h2-font-size);
+    color: var(--title-color);
+    margin-bottom: .5rem;
+}
+
+.card__product:hover .card__img {
+    transform: scale(1.1);
+}
+
+/*=============== POPUP MODAL ===============*/
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: hsla(5, 90%, 4%, .2);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(24px);
+    display: grid;
+    place-items: center;
+    padding: 2rem 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: var(--z-modal);
+    transition: opacity .4s, visibility .4s;
+}
+
+.modal__card {
+    position: relative;
+    background-color: var(--body-color);
+    padding: 3rem 1.25rem 2rem;
+    border-radius: var(--border-radius-m);
+    display: grid;
+    row-gap: 1.5rem;
+    text-align: center;
+    transform: rotateX(90deg);
+    transition: transform .6s;
+}
+
+.modal__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--title-color);
+    cursor: pointer;
+}
+
+.modal__img {
+    width: 220px;
+    justify-self: center;
+    filter: drop-shadow(0 8px 16px hsla(5, 90%, 4%, .2));
+}
+
+.modal__name {
+    font-size: var(--h2-font-size);
+    color: var(--title-color);
+    margin-bottom: .5rem;
+}
+
+.modal__info {
+    margin-bottom: 1rem;
+}
+
+.modal__buttons {
+    display: flex;
+    gap: .5rem;
+}
+
+.modal__button {
+    flex-grow: 1;
+    outline: none;
+    border: none;
+    background-color: var(--first-color);
+    padding-block: 1rem;
+    color: var(--white-color);
+    font: var(--font-semi-bold) var(--normal-font-size) var(--body-font);
+    cursor: pointer;
+    transition: background-color .4s;
+    border-radius: var(--border-radius-s);
+}
+
+.modal__button:hover {
+    background-color: var(--first-color-alt);
+}
+
+.modal__button-ghost {
+    background-color: var(--body-color);
+    color: var(--title-color);
+    border: 3px solid var(--first-color);
+}
+
+.modal__button-ghost:hover {
+    background-color: var(--body-color);
+}
+
+/* Active modal */
+.active-modal {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: initial;
+}
+
+.active-modal .modal__card {
+    transform: rotateX(0);
+}
+
+/*=============== BREAKPOINTS ===============*/
+
+
+@media screen and (min-width: 540px) {
+    .card__container {
+        grid-template-columns: 330px;
+    }
+
+    .modal__card {
+        max-width: 350px;
+    }
+
+
+}
+
+@media screen and (min-width: 768px) {
+    .card__container {
+        grid-template-columns: repeat(2, 330px);
+    }
+
+
+}
+
+
+@media screen and (min-width: 1150px) {
+    #menu-icon {
+        display: none;
+    }
+
+    .navbar {
+        position: static;
+        flex-direction: row;
+        min-height: unset;
+        width: auto;
+        background: transparent;
+    }
+
+    .navbar a {
+        font-size: 1rem;
+    }
+
+    .container__title {
+        margin-bottom: 0.5rem;
+    }
+
+    .card__container {
+        grid-template-columns: repeat(3, 330px);
+        gap: 3rem;
+    }
+
+    .card__product {
+        padding-block: 2rem;
+        border-width: 6px;
+    }
+
+    .card__name {
+        font-size: var(--h3-font-size);
+    }
+
+    .modal__card {
+        max-width: 376px;
+        padding: 3rem 2.5rem 2.5rem;
+    }
+
+    .modal__img {
+        width: 250px;
+    }
+
+    .modal__name {
+        font-size: var(--h3-font-size);
+    }
+
+    .modal__buttons {
+        column-gap: 1rem;
+    }
+}
